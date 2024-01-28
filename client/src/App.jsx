@@ -10,10 +10,11 @@ function App() {
         <input className="input-field" type="file" name="file-upload" id="fileinput" />
         <input className="input-field" id="file-submit" name="submit-file" type="submit" />
       </form>
-      <form id="get-file" method="POST" action="/api/getfile">
+      <form id="get-file" method="POST" action="/getfile">
         <input className="input-field" type="text" name="file-get" />
         <input className="input-field" type="Submit" />
       </form>
+      
     </>
   )
 }
