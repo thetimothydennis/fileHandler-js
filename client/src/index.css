@@ -55,3 +55,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#file-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#file-submit {
+  width: 4rem;
+  margin: 1rem auto;
+}
+
+.input-field {
+  margin: auto 1rem;
+}

@@ -1,20 +1,23 @@
+import React, {useState, useEffect} from "react";
+import UploadForm from "./components/UploadForm";
+import GetAFileForm from "./components/GetAFileForm";
+import GetAllFiles from "./components/GetAllFiles";
 import './App.css'
+import DeleteAllFromDb from "./components/DeleteAllFilesFromDb";
 
 function App() {
 
+  
   return (
     <>
-      <h1>Hello world!</h1>
-      <form id="file-form" method="POST" encType="multipart/form-data" action="/api/fileupload">
-        <label className="input-label" htmlFor="file-upload">File to upload</label>
-        <input className="input-field" type="file" name="file-upload" id="fileinput" />
-        <input className="input-field" id="file-submit" name="submit-file" type="submit" />
-      </form>
-      <form id="get-file" method="POST" action="/getfile">
-        <input className="input-field" type="text" name="file-get" />
-        <input className="input-field" type="Submit" />
-      </form>
-      
+      <h1>File Manager Backend</h1>
+      <UploadForm />
+      <br />
+      <GetAFileForm />
+      <br />
+      <GetAllFiles />
+      <br />
+      <DeleteAllFromDb />
     </>
   )
 }

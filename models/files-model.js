@@ -56,8 +56,10 @@ export const updateOneFile = async (fileId, fileObj) => {
 // delete one file
 export const deleteOneFile = async (fileId) => {
     try {
-        let deleteFile = await Files.deleteOne({_id: fileId});
-        return deleteFile;
+        let deleteFromFilesystem = await Files.findById(fileId)[0].path;
+        console.log(deleteFromFilesystem);
+        // let deleteFile = await Files.deleteOne({_id: fileId});
+        return deleteFromFilesystem;
     }
     catch (err) {
         return err.message;
@@ -67,7 +69,7 @@ export const deleteOneFile = async (fileId) => {
 // delete all files
 export const deleteAllFiles = async () => {
     try {
-        let deleteFiles = await Files.deleteMany({});
+        let deleteFiles = await Files.deleteMany();
         return deleteFiles;
     }
     catch (err) {

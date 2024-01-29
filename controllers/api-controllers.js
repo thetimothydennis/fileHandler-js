@@ -7,7 +7,8 @@ export const singleFileUpload = async (req, res) => {
     fileUploadObj.mimetype = req.file.mimetype;
     fileUploadObj.date = Date.now();
     const insertOp = await files.addOneFile(fileUploadObj);
-    res.send(insertOp);
+    // res.send(insertOp);
+    res.redirect("/");
 }
 
 export const getASingleFile = async (req, res) => {
@@ -29,5 +30,5 @@ export const deleteASingleFile = async (req, res) => {
 
 export const deleteAllFiles = async (req, res) => {
     let deleteFiles = await files.deleteAllFiles();
-    res.send(deleteFiles);
+    res.send(deleteFiles)
 }
