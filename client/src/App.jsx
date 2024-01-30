@@ -2,36 +2,36 @@ import React, {useState, useEffect} from "react";
 import UploadForm from "./components/UploadForm";
 import GetFilesView from "./components/GetFilesView";
 import './App.css'
-import DeleteAllFromDb from "./components/DeleteAllFilesFromDb";
+import AdminView from "./components/AdminView";
 import NavBar from "./components/NavBar";
 
 function App() {
   const [render, setRender] = useState(<GetFilesView />);
   const [renderID, setRenderID] = useState("list-files-menu-item");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (renderID == "list-files-menu-item") {
       setRender(<GetFilesView />)
     } else if (renderID === "upload-menu-item") {
       setRender(<UploadForm />)
-    } else if (renderID === "remove-files-menu-item") {
-      setRender(<DeleteAllFromDb />)
+    } else if (renderID === "admin-menu-item") {
+      setRender(<AdminView />)
     }
   },[renderID])
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsAdmin(true);
+    }, 2000)
+  }, [])
+
   return (
-    <>
-      <h1>File Manager Backend</h1>
-      <NavBar {...{setRenderID, renderID}} />
+    <div id="main-container">
+      <h1 id="page-header">File Manager Backend</h1>
+      <NavBar {...{setRenderID, isAdmin}} />
       {render}
-      {/* <UploadForm />
-      <br />
-      <GetAFileForm />
-      <br />
-      <GetAllFiles />
-      <br />
-      <DeleteAllFromDb /> */}
-    </>
+    </div>
   )
 }
 

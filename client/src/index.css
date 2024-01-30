@@ -91,3 +91,7 @@ button:focus-visible {
 .nav-item:hover {
   background-color: #333;
 }
+
+.action-button {
+  margin: 1rem auto;
+}

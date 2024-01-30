@@ -11,9 +11,7 @@ const handleClick = async function() {
 function DeleteAllFromDb() {
     return (
         <div>
-
-                <button onClick={handleClick}>Delete All From DB</button>
-
+            <button className="action-button" onClick={handleClick}>Delete All From DB</button>
         </div>
     )
 }
