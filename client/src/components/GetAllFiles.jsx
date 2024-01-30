@@ -7,8 +7,13 @@ function GetAllFiles() {
 
     async function apiCall() {
         let response = await axios.get("/api/files")
-        console.log(response.data)
         setFiles(response.data);
+    }
+
+    async function handleDeleteFileClick(e) {
+        await axios.delete(`/api/getfile/${e.target.id}`).then(() => {
+            return window.location = "/";
+        })
     }
 
     useEffect(() => {
@@ -18,7 +23,17 @@ function GetAllFiles() {
     return (
         <div>
             <h2>Files currently in database</h2>
-            {files.map(file => <p key={file._id}><a href={`/${file.path}`} rel="noreferrer" target="_blank">{file.filename}</a></p>)}
+            <table>
+            {files.map(file => 
+                <tr key={file._id}>
+                    <td>
+                        <a href={`/${file.path}`} rel="noreferrer" target="_blank">{file.filename}</a>
+                    </td>
+                    <td>
+                        <button id={file._id} onClick={handleDeleteFileClick}>Delete</button>
+                    </td>
+                </tr>)}
+            </table>
         </div>
     )
 }

@@ -1,11 +1,13 @@
 import express from "express";
+import multer from "multer";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import * as apiControllers from "../controllers/api-controllers.js";
-import multer from "multer";
 
 // stores __dirname for use within ES6 modules
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+import * as apiControllers from "../controllers/api-controllers.js";
+
 
 const storage = multer.diskStorage({
     destination: './uploads/',

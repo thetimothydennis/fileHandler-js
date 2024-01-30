@@ -16,6 +16,7 @@ export const getAllFiles = async () => {
 export const getOneFile = async (fileId) => {
     try {
         let file = await Files.findById(fileId);
+        console.log(file)
         return file;
     }
     catch (err) {
@@ -25,7 +26,6 @@ export const getOneFile = async (fileId) => {
 
 // add one file
 export const addOneFile = async (fileObj) => {
-    console.log(fileObj);
     try {
         let { path, filename, mimetype, date } = fileObj;
         const insertFile = new Files({
@@ -35,7 +35,6 @@ export const addOneFile = async (fileObj) => {
             filetype: mimetype
         })
         const saveFiletoDb = await insertFile.save();
-        console.log(saveFiletoDb)
         return saveFiletoDb;
     }
     catch (err) {
@@ -56,10 +55,9 @@ export const updateOneFile = async (fileId, fileObj) => {
 // delete one file
 export const deleteOneFile = async (fileId) => {
     try {
-        let deleteFromFilesystem = await Files.findById(fileId)[0].path;
-        console.log(deleteFromFilesystem);
-        // let deleteFile = await Files.deleteOne({_id: fileId});
-        return deleteFromFilesystem;
+        let deleteFromFilesystem = await Files.findById(fileId).path;
+        let deleteFile = await Files.findByIdAndDelete(fileId);
+        return deleteFile;
     }
     catch (err) {
         return err.message;
