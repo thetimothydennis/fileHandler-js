@@ -17,7 +17,4 @@ app.use(express.json());
 app.use(frontendRouter);
 app.use(apiRouter);
 
-app.listen(PORT, () => {
-    console.log(`app is listening on port ${PORT}`);
-});
-
+export default app;
