@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import UploadForm from "./components/UploadForm";
-import GetFilesView from "./components/GetFilesView";
-import './App.css'
-import AdminView from "./components/AdminView";
-import NavBar from "./components/NavBar";
+import UploadForm from "../views/UploadForm.jsx";
+import GetFilesView from "../views/GetFilesView.jsx";
+import AdminView from "../views/AdminView.jsx";
+import NavBar from "../components/NavBar.jsx";
 
 function App() {
   const [render, setRender] = useState(<GetFilesView />);

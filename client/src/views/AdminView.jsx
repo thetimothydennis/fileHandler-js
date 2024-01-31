@@ -1,5 +1,5 @@
 import React from "react";
-import DeleteAllFromDb from "./DeleteAllFilesFromDb";
+import DeleteAllFromDb from "../components/DeleteAllFilesFromDb";
 
 function AdminView(props) {
     return (

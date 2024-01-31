@@ -1,6 +1,6 @@
 import React from "react";
-import GetAFileForm from "./GetAFileForm.jsx";
-import GetAllFiles from "./GetAllFiles.jsx";
+import GetAFileForm from "../components/GetAFileForm.jsx";
+import GetAllFiles from "../components/GetAllFiles.jsx";
 
 
 function GetFilesView() {

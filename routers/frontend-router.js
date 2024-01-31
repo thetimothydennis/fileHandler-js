@@ -11,9 +11,8 @@ const router = express.Router();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // static middleware for serving the frontend
-// router.use(express.static(join(__dirname, "..", "client", "dist")));
+router.use(express.static(join(__dirname, "..", "client", "dist")));
 
-router.get("/add-files", appRoute);
-router.get("/all-files", appRoute);
+router.get("/app", appRoute);
 
 export default router;
