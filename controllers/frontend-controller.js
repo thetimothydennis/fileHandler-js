@@ -21,8 +21,9 @@ export const appRoute = (req, res) => {
 export const resetPasswordPage = async (req, res) => {
 	try {
 		let { token } = req.query;
-		console.log(token);
-		if ((token.length === 0) || !token) {
+		if (token == null) {
+			res.redirect("/login")
+		} else if (token.length === 0) {
 			res.redirect("/login");
 		} else {
 			staticServe(res);
