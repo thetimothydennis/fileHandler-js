@@ -15,4 +15,6 @@ router.use(express.static(join(__dirname, "..", "client", "dist")));
 
 router.get("/app", appRoute);
 
+// additional frontend routes go here, follow the "app" route model
+
 export default router;

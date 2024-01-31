@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+import { connect, createConnection, Schema } from "mongoose";
 import {config} from "dotenv";
 config();
 
-mongoose.connect(process.env.MONGO_URI, {});
+connect(process.env.MONGO_URI, {});
 
-const connection = mongoose.createConnection(process.env.MONGO_URI);
+const connection = createConnection(process.env.MONGO_URI);
 
-const FilesSchema = new mongoose.Schema({
+const FilesSchema = new Schema({
     filename: {
         type: String,
         required: true,

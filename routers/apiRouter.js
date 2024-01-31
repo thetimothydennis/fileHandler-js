@@ -1,13 +1,11 @@
 import express from "express";
 import multer from "multer";
-import { dirname, join } from "path";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
-
 // stores __dirname for use within ES6 modules
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 import * as apiControllers from "../controllers/api-controllers.js";
-
 
 const storage = multer.diskStorage({
     destination: './uploads/',
@@ -23,24 +21,24 @@ const router = express.Router();
 router.route("/getfile")
     .post((req, res) => {
         let filename = req.body["file-get"];
-        res.sendFile(filename, { root: __dirname + "../uploads/"})
+        res.sendFile(filename, { root: __dirname + "../uploads/"});
     })
 
 router.get("/uploads/:filename", (req, res) => {
     let filename = req.params.filename;
-    res.sendFile(filename, { root: __dirname + "/../uploads/"})
+    res.sendFile(filename, { root: __dirname + "/../uploads/"});
 })
 
 router.route("/api/fileupload")
-    .post(upload.single("file-upload"), apiControllers.singleFileUpload)
+    .post(upload.single("file-upload"), apiControllers.singleFileUpload);
 
 router.route("/api/getfile/:fileid")
     .get(apiControllers.getASingleFile)
-    .delete(apiControllers.deleteASingleFile)
+    .delete(apiControllers.deleteASingleFile);
 
 router.route("/api/files")
-    .get(apiControllers.getAllFiles)
+    .get(apiControllers.getAllFiles);
 
-router.delete("/api/delete-files", apiControllers.deleteAllFiles)
+router.delete("/api/delete-files", apiControllers.deleteAllFiles);
 
 export default router;

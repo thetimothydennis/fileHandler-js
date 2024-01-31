@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Files } from "./files-schema.js";
 
 // get all files
@@ -10,7 +9,7 @@ export const getAllFiles = async () => {
     catch (err) {
         return err.message;
     }
-}
+};
 
 // get one file
 export const getOneFile = async (fileId) => {
@@ -22,7 +21,7 @@ export const getOneFile = async (fileId) => {
     catch (err) {
         return err.message;
     }
-}
+};
 
 // add one file
 export const addOneFile = async (fileObj) => {
@@ -40,7 +39,7 @@ export const addOneFile = async (fileObj) => {
     catch (err) {
         return err.message;
     }
-}
+};
 
 // update one file
 export const updateOneFile = async (fileId, fileObj) => {
@@ -50,7 +49,7 @@ export const updateOneFile = async (fileId, fileObj) => {
     catch (err) {
         return err.message;
     }
-}
+};
 
 // delete one file
 export const deleteOneFile = async (fileId) => {
@@ -62,7 +61,7 @@ export const deleteOneFile = async (fileId) => {
     catch (err) {
         return err.message;
     }
-}
+};
 
 // delete all files
 export const deleteAllFiles = async () => {
@@ -73,4 +72,4 @@ export const deleteAllFiles = async () => {
     catch (err) {
         return err.message;
     }
-}
+};

@@ -21,12 +21,12 @@ export const getASingleFile = async (req, res) => {
     let fileId = req.params.fileid;
     let file = await files.getOneFile(fileId);
     res.send(file);
-}
+};
 
 export const getAllFiles = async (req, res) => {
     const allFiles = await files.getAllFiles();
     res.send(allFiles);
-}
+};
 
 const uploads_dir = join(__dirname, "..", "uploads");
 
@@ -41,7 +41,7 @@ export const deleteASingleFile = async (req, res) => {
         console.log(`file ${fileToDelete.filename} removed from filesystem`);
     })
     res.send(deleteFromDb);
-}
+};
 
 export const deleteAllFiles = async (req, res) => {
     let deleteDb = await files.deleteAllFiles();
@@ -58,6 +58,5 @@ export const deleteAllFiles = async (req, res) => {
             })
         }
     })
-    
     res.send(deleteDb)
-}
+};
