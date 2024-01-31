@@ -16,3 +16,18 @@ function staticServe(res) {
 export const appRoute = (req, res) => {
 	staticServe(res);
 };
+
+// reset password page
+export const resetPasswordPage = async (req, res) => {
+	try {
+		let { token } = req.query;
+		console.log(token);
+		if ((token.length === 0) || !token) {
+			res.redirect("/login");
+		} else {
+			staticServe(res);
+		}
+	} catch (err) {
+		res.status(404).send(err);
+	}
+}

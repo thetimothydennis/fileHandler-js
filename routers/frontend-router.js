@@ -3,7 +3,7 @@ import express from "express";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import { appRoute } from "../controllers/frontend-controller.js";
+import { appRoute, resetPasswordPage } from "../controllers/frontend-controller.js";
 
 const router = express.Router();
 
@@ -16,5 +16,10 @@ router.use(express.static(join(__dirname, "..", "client", "dist")));
 router.get("/app", appRoute);
 
 // additional frontend routes go here, follow the "app" route model
+router.get("/login", appRoute);
+router.get("/register", appRoute);
+router.get("/changepassword", appRoute);
+router.get("/forgotpassword", appRoute);
+router.get("/resetpassword", resetPasswordPage);
 
 export default router;
