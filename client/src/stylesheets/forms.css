@@ -17,6 +17,7 @@ div.form-field input {
     width: 20rem;
     max-width: 40vw;
     margin: 0.5rem auto;
+    text-align: center;
 }
 
 button.auth-button {
